@@ -9,7 +9,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     os.makedirs(args.out_dir, exist_ok=True)
-    iris = load_iris(as_frame=True)
+    iris = pd.read_csv("zameen_updated.csv")
     df = pd.concat([iris.data, iris.target.rename("target")], axis=1)
-    df.to_csv(os.path.join(args.out_dir, "iris.csv"), index=False)
-    print("Saved iris.csv in", args.out_dir)
+    df.to_csv(os.path.join(args.out_dir, "zameen_updated.csv"), index=False)
+    print("Saved zameen_updated.csv in", args.out_dir)

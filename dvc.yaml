@@ -2,14 +2,14 @@ stages:
   prepare:
     cmd: python src/prepare.py --out_dir data
     outs:
-      - data/iris.csv
+      - data/zameen_updated.csv
     params:
       - prepare.random_seed
 
   features:
-    cmd: python src/features.py --in_csv data/iris.csv --out_dir data --test_size ${features.test_size} --random_state ${features.random_state}
+    cmd: python src/features.py --in_csv data/zameen_updated.csv --out_dir data --test_size ${features.test_size} --random_state ${features.random_state}
     deps:
-      - data/iris_dataset.csv
+      - data/zameen_updated.csv
       - src/features.py
     outs:
       - data/X_train.npy
